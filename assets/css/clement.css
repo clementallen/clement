@@ -1,0 +1,106 @@
+html, body {
+    font-family: 'Fira Sans', sans-serif;
+    height: 100%;
+    background-color: #41c9ff;
+}
+
+h1 {
+    font-size: 3em;
+    text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+    font-size: 2em;
+    text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
+}
+
+#header {
+    height: 300px;
+    background-image: url(../img/hcv.jpg);
+    background-size: cover;
+    background-position: left center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.75);
+}
+
+#header .box {
+    width: 55%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, .9);
+    text-align: center;
+    text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
+    position: relative;
+    -webkit-clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+}
+
+#header .box .material {
+    width: 80%;
+    position: absolute;
+    margin: 60px 0;
+    bottom: 0;
+}
+
+#header .box  .material img {
+    height: 130px;
+    border-radius: 150px;
+}
+
+#header .box p {
+    font-size: 1em;
+    font-weight: 300;
+    margin-top: 0.5em;
+}
+
+#content {
+    width: 85%;
+    margin: 0 auto;
+    color: #fff;
+}
+
+#content h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#content p {
+    padding-bottom: 10px;
+}
+
+.article {
+    margin: 200px 0;
+}
+
+@media (max-width: 750px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    #header .box .material {
+        top: 0;
+    }
+
+    #header .box  .material img {
+        height: 100px;
+    }
+}
+
+@media (max-width: 600px) {
+    #header {
+        background-position: 70% top;
+        background-size: auto 120%;
+        height: 400px;
+    }
+
+    #header .box {
+        overflow: hidden;
+        width: 100%;
+        height: 65%;
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
+    }
+
+    #header .box .material {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
