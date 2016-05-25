@@ -1,0 +1,116 @@
+@import 'partials/variables';
+@import 'partials/mixins';
+
+@import 'node_modules/sass-mq/mq';
+@import 'node_modules/family.scss/family';
+
+html,
+body {
+    background-color: $theme;
+    font-family: 'Fira Sans', sans-serif;
+    height: 100%;
+}
+
+h1 {
+    font-size: 2em;
+
+    @include mq($from: $large-bp) {
+        font-size: 3em;
+    }
+}
+
+h2 {
+    font-size: 2em;
+}
+
+.header {
+    background-image: url('../img/hcv.jpg');
+    background-position: 70% top;
+    background-size: auto 120%;
+    box-shadow: 0 2px 5px $box-shadow-colour;
+    height: 400px;
+
+    @include mq($from: $medium-bp) {
+        background-position: left center;
+        background-size: cover;
+        height: 40vh;
+        min-height: 300px;
+    }
+
+    .box {
+        background-color: $box-background-colour;
+        clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
+        height: 65%;
+        overflow: hidden;
+        position: relative;
+        text-align: center;
+        width: 100%;
+
+        @include mq($from: $medium-bp) {
+            clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+            display: inline-flex;
+            height: 100%;
+            width: 55%;
+        }
+
+        .material {
+            margin: 20px 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+
+            @include mq($from: $medium-bp) {
+                margin: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 80%;
+            }
+
+            img {
+                border-radius: 150px;
+                height: 100px;
+
+                @include mq($from: $large-bp) {
+                    height: 130px;
+                }
+            }
+        }
+
+        p {
+            font-size: 1em;
+            font-weight: 300;
+            margin-top: .5em;
+        }
+    }
+}
+
+.content {
+    box-sizing: border-box;
+    color: $theme-text-color;
+    width: 100%;
+
+    h2 {
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    p {
+        padding-bottom: 10px;
+    }
+
+    .article {
+        margin-bottom: 50px;
+        padding: 50px;
+
+        @include even() {
+                color: $article-text-color;
+                background-color: $theme-text-color;
+                box-shadow: 0 -2px 5px $box-shadow-colour;
+        }
+
+        @include last(1) {
+            margin-bottom: 0;
+        }
+
+    }
+}
