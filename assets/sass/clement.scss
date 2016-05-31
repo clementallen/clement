@@ -3,6 +3,7 @@
 
 @import 'node_modules/sass-mq/mq';
 @import 'node_modules/family.scss/family';
+@import 'vendor/reset';
 
 html,
 body {
@@ -27,7 +28,7 @@ h2 {
     background-image: url('../img/hcv.jpg');
     background-position: 70% top;
     background-size: auto 120%;
-    box-shadow: 0 2px 5px $box-shadow-colour;
+    box-shadow: 0 0 5px 2px $box-shadow-colour;
     height: 400px;
 
     @include mq($from: $medium-bp) {
@@ -99,18 +100,16 @@ h2 {
     }
 
     .article {
-        margin-bottom: 50px;
-        padding: 50px;
-
-        @include even() {
-                color: $article-text-color;
-                background-color: $theme-text-color;
-                box-shadow: 0 -2px 5px $box-shadow-colour;
+        @include even {
+            background-color: $theme-text-color;
+            box-shadow: 0 0 5px 2px $box-shadow-colour;
+            color: $article-text-color;
         }
 
         @include last(1) {
             margin-bottom: 0;
         }
 
+        padding: 50px;
     }
 }

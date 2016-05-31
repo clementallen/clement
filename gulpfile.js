@@ -8,15 +8,13 @@ var cleanCSS = require('gulp-clean-css');
 var autoprefixer = require('gulp-autoprefixer');
 var cmq = require('gulp-merge-media-queries');
 
-
 var staticSourceBase = './assets';
 var staticDestBase = './public';
 
 var files = {
     staticSource: {
         all: staticSourceBase + '/**',
-        sass: staticSourceBase + '/sass/**/*.scss',
-        css: staticSourceBase + '/css/**/*.css',
+        sass: staticSourceBase + '/sass',
         img: staticSourceBase + '/img/**/*',
         js: staticSourceBase + '/js/**/*.js'
     },
@@ -29,11 +27,14 @@ var files = {
 };
 
 gulp.task('sass', function() {
-    return gulp.src([files.staticSource.sass])
+    return gulp.src([files.staticSource.sass + '/*.scss'])
         .pipe(sass({
             outputStyle: 'expanded'
         }).on('error', sass.logError))
         .pipe(autoprefixer())
+        .pipe(rename({
+            suffix: '.min'
+        }))
         .pipe(gulp.dest(files.staticDest.css));
 });
 
@@ -42,45 +43,36 @@ gulp.task('copy-images', function() {
         .pipe(gulp.dest(files.staticDest.img));
 });
 
-gulp.task('copy-css', function() {
-    return gulp.src([files.staticSource.css])
-        .pipe(gulp.dest(files.staticDest.css));
-});
-
 gulp.task('cmq', ['sass'], function() {
-    return gulp.src([files.staticDest.css + '/**'])
+    return gulp.src([files.staticDest.css + '/**/*.css'])
         .pipe(cmq())
         .pipe(gulp.dest(files.staticDest.css));
 });
 
 gulp.task('copy-js', function() {
     return gulp.src([files.staticSource.js])
+        .pipe(rename({
+            suffix: '.min'
+        }))
         .pipe(gulp.dest(files.staticDest.js));
 });
 
 gulp.task('sass-lint', function() {
-    return gulp.src(files.staticSource.sass)
+    return gulp.src(files.staticSource.sass + '/**/*.scss')
         .pipe(sassLint())
         .pipe(sassLint.format());
 });
 
 gulp.task('minify-css', ['sass'], function() {
-    return gulp.src(files.staticDest.css + '/clement.css')
+    return gulp.src(files.staticDest.css + '/clement.min.css')
         .pipe(cleanCSS())
-        .pipe(rename({
-            suffix: '.min'
-        }))
         .pipe(gulp.dest(files.staticDest.css));
 });
 
 gulp.task('minify-js', ['copy-js'], function() {
-    return gulp.src(files.staticDest.js + '/clement.js')
-        .pipe(minify({
-            ext: {
-                min: '.min.js'
-            }
-        }))
-        .pipe(gulp.dest(files.staticDest.js))
+    return gulp.src(files.staticDest.js + '/clement.min.js')
+        .pipe(minify())
+        .pipe(gulp.dest(files.staticDest.js));
 });
 
 gulp.task('watch', function() {
@@ -90,7 +82,7 @@ gulp.task('watch', function() {
 });
 
 gulp.task('minify', ['minify-css', 'minify-js']);
-gulp.task('copy-assets', ['copy-images', 'copy-js', 'copy-css']);
+gulp.task('copy-assets', ['copy-images', 'copy-js']);
 gulp.task('lint', ['sass-lint']);
 
 gulp.task('default', ['sass', 'cmq', 'copy-assets', 'lint']);
