@@ -1,9 +1,9 @@
+@import 'vendor/grid';
+
 @import 'partials/variables';
-@import 'partials/mixins';
 
 @import 'node_modules/sass-mq/mq';
 @import 'node_modules/family.scss/family';
-@import 'vendor/reset';
 
 html,
 body {
@@ -14,6 +14,7 @@ body {
 
 h1 {
     font-size: 2em;
+    margin: 10px;
 
     @include mq($from: $large-bp) {
         font-size: 3em;
@@ -97,6 +98,7 @@ h2 {
 
     p {
         padding-bottom: 10px;
+        text-align: center;
     }
 
     .article {
@@ -110,6 +112,63 @@ h2 {
             margin-bottom: 0;
         }
 
-        padding: 50px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+
+        &.about {
+            padding: 50px 20px;
+        }
+    }
+}
+
+.portfolio-box {
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    max-width: 650px;
+    position: relative;
+
+    img {
+        border: 1px solid $box-shadow-colour;
+    }
+
+    .portfolio-box-caption {
+        background: rgba($theme, .9);
+        border-radius: 6px;
+        bottom: 0;
+        color: $theme-text-color;
+        display: block;
+        height: 100%;
+        opacity: 0;
+        position: absolute;
+        text-align: center;
+        transition: opacity .35s;
+        width: 100%;
+
+        .portfolio-box-caption-content {
+            position: absolute;
+            text-align: center;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+
+            .project-name,
+            .project-details {
+                padding: 10px;
+            }
+
+            .project-name {
+                font-size: 16px;
+                font-weight: 600;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    &:hover {
+        .portfolio-box-caption {
+            opacity: 1;
+        }
     }
 }

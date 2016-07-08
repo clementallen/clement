@@ -2,7 +2,6 @@ var gulp = require('gulp');
 
 var sass = require('gulp-sass');
 var minify = require('gulp-minify');
-var rename = require('gulp-rename');
 var sassLint = require('gulp-sass-lint');
 var cleanCSS = require('gulp-clean-css');
 var autoprefixer = require('gulp-autoprefixer');
@@ -15,6 +14,7 @@ var files = {
     staticSource: {
         all: staticSourceBase + '/**',
         sass: staticSourceBase + '/sass',
+        css: staticSourceBase + '/css',
         img: staticSourceBase + '/img/**/*',
         js: staticSourceBase + '/js/**/*.js'
     },
@@ -32,9 +32,6 @@ gulp.task('sass', function() {
             outputStyle: 'expanded'
         }).on('error', sass.logError))
         .pipe(autoprefixer())
-        .pipe(rename({
-            suffix: '.min'
-        }))
         .pipe(gulp.dest(files.staticDest.css));
 });
 
@@ -51,32 +48,29 @@ gulp.task('cmq', ['sass'], function() {
 
 gulp.task('copy-js', function() {
     return gulp.src([files.staticSource.js])
-        .pipe(rename({
-            suffix: '.min'
-        }))
         .pipe(gulp.dest(files.staticDest.js));
 });
 
 gulp.task('sass-lint', function() {
-    return gulp.src(files.staticSource.sass + '/**/*.scss')
+    return gulp.src(files.staticSource.sass + '/*.scss')
         .pipe(sassLint())
         .pipe(sassLint.format());
 });
 
 gulp.task('minify-css', ['sass'], function() {
-    return gulp.src(files.staticDest.css + '/clement.min.css')
+    return gulp.src(files.staticDest.css + '/clement.css')
         .pipe(cleanCSS())
         .pipe(gulp.dest(files.staticDest.css));
 });
 
 gulp.task('minify-js', ['copy-js'], function() {
-    return gulp.src(files.staticDest.js + '/clement.min.js')
+    return gulp.src(files.staticDest.js + '/clement.js')
         .pipe(minify())
         .pipe(gulp.dest(files.staticDest.js));
 });
 
 gulp.task('watch', function() {
-    gulp.watch(files.staticSource.sass, ['sass', 'cmq']);
+    gulp.watch(files.staticSource.sass + '/**/*.scss', ['sass', 'cmq']);
     gulp.watch(files.staticSource.img, ['copy-images']);
     gulp.watch(files.staticSource.js, ['copy-js']);
 });
