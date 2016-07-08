@@ -3,7 +3,7 @@
 @import 'partials/variables';
 
 @import 'node_modules/sass-mq/mq';
-@import 'node_modules/family.scss/family';
+@import 'node_modules/family.scss/source/src/family';
 
 html,
 body {
@@ -23,6 +23,17 @@ h1 {
 
 h2 {
     font-size: 2em;
+}
+
+a {
+    color: $theme-text-color;
+    transition: color .35s;
+
+    &:hover,
+    &:focus {
+        color: $article-text-color;
+        text-decoration: none;
+    }
 }
 
 .header {
@@ -112,11 +123,23 @@ h2 {
             margin-bottom: 0;
         }
 
-        padding-top: 50px;
         padding-bottom: 50px;
+        padding-top: 50px;
 
         &.about {
             padding: 50px 20px;
+        }
+
+        &.contact {
+            text-align: center;
+
+            .social-link {
+                margin-bottom: 20px;
+
+                & .title {
+                    padding-top: 5px;
+                }
+            }
         }
     }
 }
@@ -134,7 +157,7 @@ h2 {
     }
 
     .portfolio-box-caption {
-        background: rgba($theme, .9);
+        background: $theme-opacity-9;
         border-radius: 6px;
         bottom: 0;
         color: $theme-text-color;

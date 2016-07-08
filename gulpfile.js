@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 
 var sass = require('gulp-sass');
-var minify = require('gulp-minify');
+var uglify = require('gulp-uglify');
 var sassLint = require('gulp-sass-lint');
 var cleanCSS = require('gulp-clean-css');
 var autoprefixer = require('gulp-autoprefixer');
@@ -65,7 +65,7 @@ gulp.task('minify-css', ['sass'], function() {
 
 gulp.task('minify-js', ['copy-js'], function() {
     return gulp.src(files.staticDest.js + '/clement.js')
-        .pipe(minify())
+        .pipe(uglify())
         .pipe(gulp.dest(files.staticDest.js));
 });
 
