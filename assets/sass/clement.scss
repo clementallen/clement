@@ -3,7 +3,6 @@
 @import 'partials/variables';
 
 @import 'node_modules/sass-mq/mq';
-@import 'node_modules/family.scss/source/src/family';
 
 html,
 body {
@@ -113,13 +112,13 @@ a {
     }
 
     .article {
-        @include even {
+        &:nth-child(even) {
             background-color: $theme-text-color;
             box-shadow: 0 0 5px 2px $box-shadow-colour;
             color: $article-text-color;
         }
 
-        @include last(1) {
+        &:nth-last-child(1) {
             margin-bottom: 0;
         }
 
