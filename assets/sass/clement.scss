@@ -112,6 +112,9 @@ a {
     }
 
     .article {
+        padding-bottom: 50px;
+        padding-top: 50px;
+
         &:nth-child(even) {
             background-color: $theme-text-color;
             box-shadow: 0 0 5px 2px $box-shadow-colour;
@@ -121,9 +124,6 @@ a {
         &:nth-last-child(1) {
             margin-bottom: 0;
         }
-
-        padding-bottom: 50px;
-        padding-top: 50px;
 
         &.about {
             padding: 50px 20px;
