@@ -1,24 +1,24 @@
 {
-  "name": "clementallen.com",
-  "version": "2.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "dev": "parcel index.html",
-    "build": "parcel build index.html --public-url . --no-source-maps"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/clementallen/clement.git"
-  },
-  "author": "Clement Allen",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/clementallen/clement/issues"
-  },
-  "homepage": "https://github.com/clementallen/clement#readme",
-  "devDependencies": {
-    "parcel-bundler": "^1.12.3",
-    "sass": "^1.17.3"
-  }
+    "name": "clementallen.com",
+    "version": "2.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "parcel index.html",
+        "build": "parcel build index.html --public-url . --no-source-maps"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/clementallen/clement.git"
+    },
+    "author": "Clement Allen",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/clementallen/clement/issues"
+    },
+    "homepage": "https://github.com/clementallen/clement#readme",
+    "devDependencies": {
+        "parcel-bundler": "^1.12.3",
+        "sass": "^1.17.3"
+    }
 }

@@ -1,0 +1,11 @@
+@mixin md {
+    @media (min-width: #{$medium-bp}) {
+        @content;
+    }
+}
+
+@mixin lg {
+    @media (min-width: #{$large-bp}) {
+        @content;
+    }
+}
