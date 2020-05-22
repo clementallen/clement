@@ -107,7 +107,7 @@
                             class="portfolio-box"
                         >
                             <img
-                                src="./assets/img/glideandseek.jpg"
+                                src="./assets/img/gns.jpg"
                                 class="portfolio-image"
                             />
                             <div class="portfolio-box-caption">
@@ -168,7 +168,7 @@
                                     <div class="project-details">
                                         I always wanted a single weather
                                         resource for gliding but couldn't find
-                                        one, so I made my own! It is a
+                                        one, so I made my own. It is a
                                         responsive, mobile-friendly site that
                                         collates all the useful gliding weather
                                         resources on the web.
@@ -206,18 +206,27 @@
                     </div>
                 </div>
             </div>
+
+            <div class="contact article">
+                <div class="footer">
+                    <p>Copyright © <span id="year"></span> Clement Allen</p>
+                </div>
+            </div>
         </div>
 
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=UA-68367355-2"
+        ></script>
         <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
 
-            ga('create', 'UA-68367355-2', 'auto');
-            ga('require','displayfeatures');
-            ga('require','linkid','linkid.js');
-            ga('send', 'pageview');
+            gtag('config', 'UA-68367355-2');
         </script>
 
         <script src="./assets/js/clement.js"></script>
