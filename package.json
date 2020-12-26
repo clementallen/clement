@@ -2,10 +2,9 @@
     "name": "clementallen.com",
     "version": "2.0.0",
     "description": "",
-    "main": "index.js",
     "scripts": {
-        "dev": "parcel index.html",
-        "build": "parcel build index.html --public-url . --no-source-maps"
+        "dev": "parcel serve ./index.html",
+        "build": "parcel build ./index.html"
     },
     "repository": {
         "type": "git",
@@ -18,7 +17,17 @@
     },
     "homepage": "https://github.com/clementallen/clement#readme",
     "devDependencies": {
-        "parcel-bundler": "^1.12.4",
+        "parcel": "^2.0.0-beta.1",
         "sass": "^1.30.0"
+    },
+    "targets": {
+        "default": {
+            "engines": {
+                "browsers": "> 0.25%"
+            },
+            "distDir": "dist",
+            "publicUrl": ".",
+            "sourceMap": false
+        }
     }
 }

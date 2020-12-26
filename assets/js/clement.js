@@ -1,3 +1,3 @@
-import '../sass/clement';
+import '../sass/clement.scss';
 
 document.getElementById('year').innerHTML = new Date().getFullYear();
