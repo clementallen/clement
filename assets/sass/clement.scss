@@ -1,9 +1,9 @@
-@import 'partials/variables';
-@import 'partials/mixins';
+@use 'partials/variables';
+@use 'partials/mixins';
 
 html,
 body {
-    background-color: $theme;
+    background-color: variables.$theme;
     font-family: 'Fira Sans', sans-serif;
     height: 100%;
     margin: 0;
@@ -13,7 +13,7 @@ h1 {
     font-size: 2em;
     margin: 10px;
 
-    @include lg {
+    @include mixins.lg {
         font-size: 2.5em;
     }
 }
@@ -23,12 +23,12 @@ h2 {
 }
 
 a {
-    color: $theme-text-color;
+    color: variables.$theme-text-color;
     transition: color 0.35s;
 
     &:hover,
     &:focus {
-        color: $article-text-color;
+        color: variables.$article-text-color;
         text-decoration: none;
     }
 }
@@ -37,10 +37,10 @@ a {
     background-image: url('../img/hcv.jpg');
     background-position: 70% top;
     background-size: auto 120%;
-    box-shadow: 0 0 5px 2px $box-shadow-colour;
+    box-shadow: 0 0 5px 2px variables.$box-shadow-colour;
     height: 400px;
 
-    @include lg {
+    @include mixins.lg {
         background-position: left center;
         background-size: cover;
         height: 40vh;
@@ -48,7 +48,7 @@ a {
     }
 
     .box {
-        background-color: $box-background-colour;
+        background-color: variables.$box-background-colour;
         clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
         height: 65%;
         overflow: hidden;
@@ -56,7 +56,7 @@ a {
         text-align: center;
         width: 100%;
 
-        @include md {
+        @include mixins.md {
             clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
             display: inline-flex;
             height: 100%;
@@ -69,7 +69,7 @@ a {
             top: 0;
             width: 100%;
 
-            @include md {
+            @include mixins.md {
                 margin: 0;
                 top: 50%;
                 transform: translateY(-50%);
@@ -80,7 +80,7 @@ a {
                 border-radius: 150px;
                 height: 110px;
 
-                @include lg {
+                @include mixins.lg {
                     height: 175px;
                 }
             }
@@ -96,7 +96,7 @@ a {
 
 .content {
     box-sizing: border-box;
-    color: $theme-text-color;
+    color: variables.$theme-text-color;
     width: 100%;
 
     h2 {
@@ -114,9 +114,9 @@ a {
         padding-top: 50px;
 
         &:nth-child(even) {
-            background-color: $theme-text-color;
-            box-shadow: 0 0 5px 2px $box-shadow-colour;
-            color: $article-text-color;
+            background-color: variables.$theme-text-color;
+            box-shadow: 0 0 5px 2px variables.$box-shadow-colour;
+            color: variables.$article-text-color;
         }
 
         &:nth-last-child(1) {
@@ -136,7 +136,7 @@ a {
                 max-width: 1200px;
                 margin: 0 auto;
 
-                @include md {
+                @include mixins.md {
                     grid-template-columns: repeat(
                         auto-fill,
                         minmax(16.666%, 1fr)
@@ -164,7 +164,7 @@ a {
     max-width: 1200px;
     margin: 0 auto;
 
-    @include lg {
+    @include mixins.lg {
         grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
     }
 
@@ -189,15 +189,15 @@ a {
 
         img {
             transition: border 0.35s;
-            border: 1px solid $box-shadow-colour;
+            border: 1px solid variables.$box-shadow-colour;
         }
 
         &-caption {
-            background: $theme-opacity-9;
+            background: variables.$theme-opacity-9;
             border-radius: 6px;
             bottom: 0;
             left: 1px;
-            color: $theme-text-color;
+            color: variables.$theme-text-color;
             display: block;
             height: 100%;
             opacity: 0;
@@ -231,7 +231,7 @@ a {
                 opacity: 1;
             }
             img {
-                border: 1px solid $theme-opacity-9;
+                border: 1px solid variables.$theme-opacity-9;
             }
         }
     }

@@ -1,11 +1,13 @@
+@use 'variables';
+
 @mixin md {
-    @media (min-width: #{$medium-bp}) {
+    @media (min-width: #{variables.$medium-bp}) {
         @content;
     }
 }
 
 @mixin lg {
-    @media (min-width: #{$large-bp}) {
+    @media (min-width: #{variables.$large-bp}) {
         @content;
     }
 }
