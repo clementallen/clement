@@ -17,8 +17,8 @@
     },
     "homepage": "https://github.com/clementallen/clement#readme",
     "devDependencies": {
-        "@parcel/transformer-sass": "^2.0.0",
-        "parcel": "^2.0.0"
+        "@parcel/transformer-sass": "^2.12.0",
+        "parcel": "^2.12.0"
     },
     "targets": {
         "default": {
