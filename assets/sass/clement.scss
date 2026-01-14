@@ -133,15 +133,13 @@ a {
             .social {
                 display: grid;
                 grid-template-columns: repeat(auto-fill, minmax(33.333%, 1fr));
-                max-width: 1200px;
+                max-width: 600px;
                 margin: 0 auto;
 
                 @include mixins.md {
-                    grid-template-columns: repeat(
-                        auto-fill,
-                        minmax(16.666%, 1fr)
-                    );
+                    grid-template-columns: repeat(auto-fill, minmax(33.333%, 1fr));
                 }
+
                 &-link {
                     margin-bottom: 20px;
 
