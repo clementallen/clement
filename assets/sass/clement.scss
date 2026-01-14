@@ -137,10 +137,7 @@ a {
                 margin: 0 auto;
 
                 @include mixins.md {
-                    grid-template-columns: repeat(
-                        auto-fill,
-                        minmax(16.666%, 1fr)
-                    );
+                    grid-template-columns: repeat(auto-fill, minmax(16.666%, 1fr));
                 }
                 &-link {
                     margin-bottom: 20px;
